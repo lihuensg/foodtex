@@ -1,0 +1,11 @@
+# Scoped iteration: solutions explorer and Carnave
+
+Preserved art direction and hero. Existing footage is 540×960, 31.77 seconds; panoramic hero crop would sacrifice context and definition. No invented footage. Real Carnave video is presented in an intentionally wide editorial film frame with its original aspect ratio; background is an atmospheric treatment of the same real frame. Full case and original video remain unchanged.
+
+Four representative products are selected from published existing categories, respecting demo edits. Desktop tabs: hover/click/keyboard and drag. Mobile native swipe and CSS snap with next-card peek. Progress, direct product/quote actions, general PDF retained. Removed old home slider controls and handler. Preview loaded only by eligible pointer or focus; muted, loop, playsinline, no audio; stopped on leave, visibility changes, reduced motion and when offscreen. Static mobile poster links to full case. Desktop preview 997 KiB, smaller variant 474 KiB, poster 38 KiB.
+
+Validation: JavaScript syntax, diff whitespace, render checks for public/admin routes, four real categories and asset existence passed. Browser review to follow.
+
+Browser audit: 42 document-width checks (six public pages × 360, 375, 390, 430, 768, 1366, 1440 px) and 42 heading/paragraph overflow checks passed. Desktop category click and keyboard changed the active solution; drag changed progress to 04; native mobile horizontal scroll changed progress to 04. Hover/focus preview reached playing state, mobile source remained unloaded. Case opens existing publication with original source. Tablet header quotation CTA was visibly wrapping: compacted tablet navigation only. Mobile captions reduced to meaningful labels; card width adjusted to 86vw. No generic home slider controls remain; process line arrows and outbound CTA arrows retained for meaning. Hero, service narration, about, news, contact and admin unchanged apart from tablet navigation audit fix. Poster/video dimensions reserve their layout; no Lighthouse or measured CLS benchmark run.
+
+Final 375px check: widened the swipe viewport to full available phone width, preserving inner 18px alignment and a consistent next-card peek. Cards occupy approximately 86% of the usable viewport.

@@ -1,0 +1,69 @@
+/* Narrow correction pass: product grid + editorial mobile + media integration. */
+/* Media system: technical pieces remain complete; photographs fill their frame;
+   marks remain contained. Background colours belong to the section/card. */
+.product-card .product-img,
+.product-page .detail-photo,
+.quote-product-head img{background:transparent}
+.product-card .product-img img,
+.product-page .detail-photo img{object-fit:contain;mix-blend-mode:multiply}
+.logo,.marquee-group img{object-fit:contain}
+.journal-image img,.journal-side img,
+.service-mobile-image,.story-mobile-photo{object-fit:cover;object-position:var(--media-position,center)}
+.journal-side img{background:transparent}
+/* Technical catalogue: keep the existing mobile composition and its 270px media. */
+.final-catalog .product-card,
+.final-catalog .product-card:first-child,
+.final-catalog .product-card.product-featured{grid-column:auto;border-radius:var(--radius-sm)}
+.final-catalog .product-img,
+.final-catalog .product-card:first-child .product-img,
+.final-catalog .product-card.product-featured .product-img{background:transparent;padding:22px}
+.final-catalog .product-img img{width:100%;height:100%;object-fit:contain}
+.product-page .detail-photo{background:transparent}
+.related-products .product-img{background:transparent}
+/* No empty side panels on article photography. Native ratio preserves the real
+   event material and text within photographed posters. Video stays untouched. */
+.article-visual:not(.has-film){display:block;min-height:0;background:transparent}
+.article-visual:not(.has-film)>img{display:block;width:auto;height:auto;max-width:100%;max-height:650px;object-fit:contain;margin-inline:auto}
+@media(min-width:761px){
+ .final-catalog .catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;align-items:stretch;gap:32px}
+ .final-catalog .product-card,.final-catalog .product-card:first-child{display:flex;flex-direction:column;align-items:stretch}
+ .final-catalog .product-card>a{display:block;flex:0 0 auto}
+ .final-catalog .product-img,.final-catalog .product-card:first-child .product-img,.final-catalog .product-card.product-featured .product-img{height:auto;aspect-ratio:4/3;width:100%;margin:0;border:0;border-radius:var(--radius-sm)}
+ .final-catalog .product-body,.final-catalog .product-card:first-child .product-body{flex:1;padding:22px 0 12px;display:flex;flex-direction:column;min-width:0}
+ .final-catalog .product-body h3,.final-catalog .product-card:first-child .product-body h3{font-size:24px;line-height:1.2;min-height:2.4em}
+ .final-catalog .product-body p{font-size:14px;line-height:1.6;min-height:4.8em;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+ .final-catalog .product-bottom{margin-top:auto;padding-top:12px}
+}
+@media(min-width:1100px){.final-catalog .catalog-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1600px){.final-catalog .catalog-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* Journal desktop geometry is retained. Only the mobile reading order changes. */
+@media(max-width:760px){
+ .brand-journal .journal-layout,.final-news .journal-layout{display:block;min-width:0;max-width:100%}
+ .journal-lead,.journal-sidebar,.journal-archive,.journal-side{min-width:0;max-width:100%}
+ .journal-image{width:100%;aspect-ratio:4/3}
+ .journal-lead h3{font-size:clamp(26px,7.4vw,32px);overflow-wrap:break-word}
+ .journal-sidebar{margin-top:36px;gap:34px}
+ .journal-side{padding-top:24px}
+ .journal-side>a{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:'photo' 'category' 'title' 'action';gap:0;min-width:0;max-width:100%}
+ .journal-side img{grid-area:photo;display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:var(--media-position,center);background:transparent;margin:0 0 20px}
+ .journal-side .eyebrow{grid-area:category;margin:0 0 12px}
+ .journal-side h3{grid-area:title;font-size:clamp(25px,7vw,31px);line-height:1.18;max-width:100%;overflow-wrap:break-word}
+ .journal-side-action{grid-area:action;padding-top:15px;min-height:44px}
+ .journal-archive{display:block;margin-top:34px}
+ .journal-archive .journal-side{margin-top:34px}
+ .brand-journal .section-head{min-width:0}
+ .brand-journal .section-head h2{font-size:clamp(30px,8.6vw,37px)}
+ .journal-side img[src*='plant.jpg']{object-position:center 52%}
+ .service-mobile-image,.story-mobile-photo{background:transparent}
+}
+/* Existing photo frame: remove the portrait letterbox, keep the frame itself. */
+.service-display-frame:nth-child(2) img{object-fit:cover;object-position:center 52%;background:transparent}
+.final-catalog .product-img{isolation:auto}
+.quote-product-head img{object-fit:contain;mix-blend-mode:multiply}
+@media(min-width:761px){
+ .final-catalog .product-card .product-body .meta,
+ .final-catalog .product-card:first-child .product-body .meta{font-size:10px;line-height:1.6;margin-bottom:12px}
+}
+/* Blend white baked-in studio backgrounds at the card boundary, including when
+   the existing hover transform creates a separate compositing layer. */
+.final-catalog .product-card{mix-blend-mode:multiply}
